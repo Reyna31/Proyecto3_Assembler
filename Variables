@@ -1,0 +1,26 @@
+
+/* Variables de acceso */
+
+.align 2
+.global fila1
+.data
+fila1:
+	.ascii "( )", "( )", "( )", "( )"
+	
+.align 2
+.global fila2
+.data 
+fila2:
+	.ascii "( )", "( )","( )", "( )"
+	
+.align 2
+.global fila3
+.data 
+fila3:
+	.ascii "( )", "( )","( )", "( )"
+	
+.align 2
+.global fila4
+.data
+fila4:
+	.ascii "( )", "( )","( )", "( )"

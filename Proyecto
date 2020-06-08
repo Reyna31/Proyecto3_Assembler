@@ -1,0 +1,63 @@
+.text
+.align 2
+.global main
+.type main, %function
+	
+main:
+	
+	ldr r0, =formato_impri
+	ldr r1, =titulo
+	bl printf
+	
+	bl Menu
+	ldr r0, =Ingreso_op
+	bl puts
+	
+	ldr r0, =ingreso
+	ldr r1, =opcionIn
+	bl scanf
+	
+	ldr r0, =opcionIn
+	ldr r0,[r0]
+	
+	cmp r0,#1
+	bleq inicio
+	
+	cmp r0,#2
+	bleq Salir
+
+Salir:
+
+	MOV r7,#1
+	SWI 0
+
+
+.align 2
+ingreso:
+	.asciz "%d"
+
+.data
+.align 2
+formato_impri: 
+	.asciz "%s \n"
+	
+titulo:
+	.asciz " _______ # _______ # _______ # _______ # ___     # _______ # _______ # __   __ # ___  # _______ #
+|  _    |#|   _   |#|       |#|       |#|   |    #|       |#|       |#|  | |  |#|   | #|       |#
+| |_|   |#|  |_|  |#|_     _|#|_     _|#|   |    #|    ___|#|  _____|#|  |_|  |#|   | #|    _  |#
+|       |#|       |#  |   |  #  |   |  #|   |    #|   |___ #| |_____ #|       |#|   | #|   |_| |#
+|  _   | #|       |#  |   |  #  |   |  #|   |___ #|    ___|#|_____  |#|       |#|   | #|    ___|#
+| |_|   |#|   _   |#  |   |  #  |   |  #|       |#|   |___ # _____| |#|   _   |#|   | #|   |    #
+|_______|##|__| |__|##  |___|  ##  |___|  ##|_______|##|_______|##|_______|##|__| |__|##|___| ##|___|    ##"
+
+.align 2
+Ingreso_op:
+	.asciz "Ingrese su opcion: "
+	
+.align 2
+opcionIn:
+	.word 0
+
+.align 2
+menu:
+	.asciz "\t\t\t Bienvenidos a battle ship \n\t1).Iniciar Partida. \n\t2).Salir \n"

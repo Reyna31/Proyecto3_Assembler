@@ -1,0 +1,58 @@
+
+.text
+.align 2
+.global Menu
+Menu:
+	push {lr}
+	
+	ldr r0, =menu
+	bl puts
+	
+	pop{pc}
+	
+turno_jugador_1:
+	push {lr}
+	ldr r0, =turno1
+	bl puts
+	
+	ldr r0, =fila1
+	bl puts
+	ldr r0, =fila2
+	bl puts
+	ldr r0, =fila3
+	bl puts
+	ldr r0, =fila4
+	bl puts
+	pop {pc}
+
+turno_jugador_2:
+	push {lr}
+	ldr r0, =turno2
+	bl puts
+	
+	ldr r0, =fila1
+	bl puts
+	ldr r0, =fila2
+	bl puts
+	ldr r0, =fila3
+	bl puts
+	ldr r0, =fila4
+	bl puts
+	pop {pc}
+
+iniciar:
+	bl turno_jugador_1
+	
+
+
+.align 2
+menu:
+	.asciz "\t\t\t Bienvenidos a battle ship \n\t1).Iniciar Partida. \n\t2).Salir \n"
+	
+.align 2
+.data
+turno1:
+	.asciz "Turno Jugador 1: "
+	
+turno2:
+	.asciz "Turno Jugador 2: "
